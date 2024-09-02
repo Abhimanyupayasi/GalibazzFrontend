@@ -1,0 +1,60 @@
+.depressed-boy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 200px;
+    position: relative;
+  }
+  
+  .head {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    position: relative;
+  }
+  
+  .face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .eyes {
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+  }
+  
+  .mouth {
+    width: 12px;
+    height: 4px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .body {
+    width: 60px;
+    height: 120px;
+    background-color: #f0f0f0;
+    margin-top: 10px;
+  }
+  
+  .message {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  

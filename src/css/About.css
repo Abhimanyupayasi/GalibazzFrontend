@@ -1,0 +1,28 @@
+.about-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .story-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .story-content h2 {
+    color: #ffa726;
+  }
+  
+  .story-content p {
+    color: #e0e0e0;
+  }
+  
+  @media (min-width: 1024px) {
+    .story-content {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+  

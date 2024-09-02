@@ -1,0 +1,16 @@
+.bar {
+    @apply absolute left-0 right-0 h-1 rounded-sm bg-purple-600 transition-all duration-500 ease-in-out;
+  }
+  
+  .bar--top {
+    @apply transition-bottom duration-500;
+  }
+  
+  .bar--middle {
+    @apply transition-opacity transition-transform duration-500;
+  }
+  
+  .bar--bottom {
+    @apply transition-top duration-500;
+  }
+  
