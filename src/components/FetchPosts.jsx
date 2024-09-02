@@ -340,7 +340,7 @@ const FetchPosts = () => {
       setError(null);
 
       try {
-        const response = await axios.get(`https://galibazzbackend.onrender.com/api/post/all`, {
+        const response = await axios.get(`${serverURL}/api/post/all`, {
           params: { page, limit: 20 },
           headers: {
             Authorization: `${token}`,
