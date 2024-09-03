@@ -13,7 +13,7 @@ function Login() {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
-    console.log(isAuthenticated);
+    //console.log(isAuthenticated);
 
 
     useEffect(() => {

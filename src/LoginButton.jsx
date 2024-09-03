@@ -95,7 +95,7 @@ function LoginButton() {
     try {
       const token = localStorage.getItem('token');
       const severURL = import.meta.env.VITE_API_URL;
-      console.log(token);
+    //  console.log(token);
 
       const response = await fetch(`${severURL}/verify-token`, {
         method: 'POST',
@@ -106,9 +106,9 @@ function LoginButton() {
         body: JSON.stringify({ token: token })
       });
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
     } catch (error) {
-      console.error('Error verifying token:', error);
+      //console.error('Error verifying token:', error);
     }
   };
 

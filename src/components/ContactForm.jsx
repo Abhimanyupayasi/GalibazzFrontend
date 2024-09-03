@@ -58,7 +58,7 @@ const ContactForm = () => {
       }
     })
     .catch(error => {
-      console.error('Error:', error);
+    //  console.error('Error:', error);
       alert('Form submission failed.');
     });
   };2

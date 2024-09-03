@@ -19,7 +19,7 @@ const LoginButton = () => {
     try {
       await loginWithRedirect();
     } catch (error) {
-      console.error('Error during login:', error);
+      //console.error('Error during login:', error);
     }
   };
 
@@ -41,15 +41,15 @@ const LoginButton = () => {
         Cookies.set('auth_token', token.__raw, { secure: true, sameSite: 'Strict' });
          // Dispatching token to Redux state
       }).catch(error => {
-        console.error('Error getting token claims:', error);
+        //console.error('Error getting token claims:', error);
       });
       
     }
   }, [user, dispatch, getIdTokenClaims]);
 
   useEffect(() => {
-    console.log('User:', userFromState);
-    console.log('IsAuthenticated:', isAuthenticated);
+    //console.log('User:', userFromState);
+    //console.log('IsAuthenticated:', isAuthenticated);
     //setIsAuthenticated(isAuthenticated);
     if (userFromState && tokenFromState) {
         setIsAuthenticated(true);
@@ -61,12 +61,12 @@ const LoginButton = () => {
   }, [userFromState, isAuthenticated]);
 
   useEffect(() => {
-    console.log('Token:', tokenFromState);
+    //console.log('Token:', tokenFromState);
     setTokenFromState(tokenFromState);
   } , [tokenFromState]);
 
   const token = Cookies.get('auth_token');
-  console.log('Token from cookie:', token);
+  //console.log('Token from cookie:', token);
   //console.log(useSelector((state) => state.auth.isAuthenticated) || false);
     //console.log(useSelector((state) => state.auth.user) || null);
    // console.log(useSelector((state) => state.auth.token) || null);

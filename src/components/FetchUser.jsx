@@ -17,7 +17,7 @@ const FetchUser = () => {
     try {
       const response = await axios.post(`${serverURL}/api/user`, { email });
       setUser(response.data);
-      console.log(response.data);
+      //console.log(response.data);
     } catch (err) {
       setError(err.message);
     } finally {

@@ -13,7 +13,7 @@ const CardOfPost = ({ heading, content, username, createdAt, type }) => {
         setTimeout(() => setIsCopied(false), 2000); // Hide after 2 seconds
       })
       .catch((err) => {
-        console.error('Failed to copy text: ', err);
+        //console.error('Failed to copy text: ', err);
       });
   };
 

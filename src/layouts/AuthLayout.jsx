@@ -160,19 +160,19 @@ function AuthLayout() {
   useEffect(() => {
     setLoading(true);
     handleVerifyToken(token).then((data) => {
-      console.log(data);
+      //console.log(data);
       if (data === true) {
-        console.log('Token is valid');
+        //console.log('Token is valid');
         setTogal('Successfully Logged In');
         setIsTokenValid(true);
       } else {
-        console.log('Token is invalid');
+       // console.log('Token is invalid');
         setTogal('Token is invalid');
         setIsTokenValid(false);
       }
       setLoading(false);
     }).catch((error) => {
-      console.error('Error verifying token:', error);
+      //console.error('Error verifying token:', error);
       setLoading(false);
     });
   }, [token]);
@@ -186,7 +186,7 @@ function AuthLayout() {
   }
 
   const emailVerified = user?.email_verified;
-  console.log(emailVerified);
+  //console.log(emailVerified);
 
 
 

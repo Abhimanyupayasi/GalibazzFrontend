@@ -19,9 +19,9 @@
         else{
             return false;
         }
-      console.log(data);
+     // console.log(data);
     } catch (error) {
-      console.error('Error verifying token:', error);
+      //console.error('Error verifying token:', error);
     }
   };
 export default handleVerifyToken;
