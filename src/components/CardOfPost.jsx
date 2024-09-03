@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { FaRegCopy } from 'react-icons/fa'; // Import copy icon from react-icons
+import { FaRegCopy, FaCheckCircle } from 'react-icons/fa'; // Import copy and check-circle icons from react-icons
 
 const CardOfPost = ({ heading, content, username, createdAt, type }) => {
   const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
@@ -28,7 +28,18 @@ const CardOfPost = ({ heading, content, username, createdAt, type }) => {
         {content}
       </p>
       <div className="flex justify-between items-center">
-        <span className="text-sm text-gray-400">Posted by {username}</span>
+        <div className="flex items-center">
+          <span className="text-sm text-gray-400">Posted by {username}</span>
+          {/* Conditionally render verification badge */}
+          {(username === 'Galibazz.com' || username === 'galibazz.com') && (
+            <div className="flex items-center ml-2">
+              <FaCheckCircle className="text-blue-500 mr-1" />
+              <span className="bg-blue-500 text-white py-1 px-2 rounded text-xs">
+                Verified
+              </span>
+            </div>
+          )}
+        </div>
         <div className="flex items-center space-x-2">
           {/* Copy icon positioned next to the type badge */}
           <button
@@ -61,4 +72,3 @@ CardOfPost.propTypes = {
 };
 
 export default CardOfPost;
-
