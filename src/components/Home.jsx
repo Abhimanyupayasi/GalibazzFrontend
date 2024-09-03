@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaStar } from "react-icons/fa";
 import GaliBazz from './GaliBazz';
 import axios from 'axios';
+import LoginButton from './Buttons/LoginButton';
 
 const Home = () => {
 
@@ -43,7 +44,11 @@ const Home = () => {
           transition={{ duration: 1, delay: 1 }}
           className="bg-purple-600 text-white py-2 px-4 rounded-full inline-block"
         >
-           <a>Get Started</a>
+           <a className="cursor-pointer"
+           onClick={() => {
+            window.location.href = '/login'}}
+           >Get Started</a>
+           
 
 
         </motion.div>
