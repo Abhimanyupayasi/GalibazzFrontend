@@ -18,6 +18,10 @@
   .story-content p {
     color: #e0e0e0;
   }
+
+  .rotate-45 {
+    transform: rotate(45deg);
+  }
   
   @media (min-width: 1024px) {
     .story-content {

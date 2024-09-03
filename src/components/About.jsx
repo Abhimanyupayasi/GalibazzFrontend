@@ -3,6 +3,8 @@ import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 import { gsap } from 'gsap';
 import '../css/About.css'; // Assuming you have a CSS file for styling
+import Logo from './Logo';
+import GaliBazz from './GaliBazz';
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -21,6 +23,14 @@ const About = () => {
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }
       );
+
+      // Rotate the GaliBazz component 45 degrees after 2 seconds
+      gsap.to(gsapRef.current, {
+        rotation: -25,
+        duration: 1,
+        delay: 2,
+        ease: 'power4.out',
+      });
     }
   }, [controls, inView]);
 
@@ -61,11 +71,9 @@ const About = () => {
           transition={{ duration: 1 }}
           className="lg:w-1/2 p-5"
         >
-          <img
-            src="https://via.placeholder.com/400" // Replace with your image source
-            alt="Our Story"
-            className="rounded-lg shadow-lg"
-          />
+          <div className='mt-5'>
+            <GaliBazz />
+          </div>
         </motion.div>
       </div>
     </div>
