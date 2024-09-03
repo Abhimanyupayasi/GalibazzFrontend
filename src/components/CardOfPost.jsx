@@ -32,8 +32,8 @@ const CardOfPost = ({ heading, content, username, createdAt, type }) => {
           <span className="text-sm text-gray-400">Posted by {username}</span>
           {/* Conditionally render verification badge */}
           {(username === 'Galibazz.com' || username === 'galibazz.com') && (
-            <div className="flex items-center ml-2">
-              <FaCheckCircle className="text-blue-500 mr-1" />
+            <div className="flex items-start ml-2">
+              
               <span className="bg-blue-500 text-white py-1 px-2 rounded text-xs">
                 Verified
               </span>
