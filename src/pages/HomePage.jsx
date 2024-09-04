@@ -3,6 +3,9 @@ import Header from '../components/Header'
 import Home from '../components/Home'
 import OurGoal from '../components/OurGoal'
 import Phone from '../components/Phone'
+import HomePageThree from '../components/HomePageThree'
+import HomePageFour from '../components/HomePageFour'
+import Footer from '../components/Footer'
 
 function HomePage() {
   return (
@@ -10,7 +13,11 @@ function HomePage() {
         
         <Home/>
         <OurGoal/>
-        <Phone />
+        <HomePageThree/>
+        {/* <HomePageFour/> */}
+        {/* <Phone /> */}
+        <Footer/>
+        
     </div>
   )
 }
