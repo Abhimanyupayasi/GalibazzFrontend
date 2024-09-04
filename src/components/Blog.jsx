@@ -1,5 +1,6 @@
 import React from 'react'
 import GaliBazz from './GaliBazz'
+import BlogPostFetch from './BlogPostFetch'
 
 function Blog() {
   return (
@@ -19,6 +20,8 @@ function Blog() {
 </div>
       
       </div>
+
+      <BlogPostFetch/>
       
       
     </div>

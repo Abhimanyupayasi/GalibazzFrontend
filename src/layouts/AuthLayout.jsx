@@ -18,12 +18,13 @@ function AuthLayout() {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const timer = setTimeout(() => setShowNotification(false), 3000);
     return () => clearTimeout(timer);
   }, []);
-
+  
   useEffect(() => {
     const verifyToken = async () => {
       setLoading(true);

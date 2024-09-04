@@ -31,6 +31,8 @@ import EmailVerify from './components/EmailVerify';
 import CreatePostPage from './pages/CreatePostPage';
 import ProfilePage from './pages/ProfilePage';
 import NoAuth from './layouts/NoAuth';
+import SinglePostPage from './components/SinglePostPage';
+import FindPublicPost from './components/FindPublicPost';
 
 
 const router = createBrowserRouter(
@@ -44,9 +46,11 @@ const router = createBrowserRouter(
         <Route path='verify-email' element={<EmailVerify/>}/>
         <Route path='contact' element={<ContectPage/>}/>
         <Route path='blog' element={<BlogPage/>}/>
+        <Route path="post/:id" element={<SinglePostPage />} />
       </Route>
       <Route path='*' element={<AuthLayout/>}>
         <Route path='posts' element={<AllPostPage/>}/>
+        <Route path='posts/:id' element={<FindPublicPost/>}/>
         <Route path='profile' element={<ProfilePage/>}/>
         <Route path='create-post' element={<CreatePostPage/>}/>
 
