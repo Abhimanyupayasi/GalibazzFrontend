@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { FaRegCopy, FaCheckCircle } from 'react-icons/fa'; // Import copy and check-circle icons from react-icons
 
-const CardOfPost = ({ heading, content, username, createdAt, type }) => {
+const CardOfPost = ({id, heading, content, username, createdAt, type }) => {
   const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
+ 
+  const LinkPost = `https://galibazz.vercel.app/post/${id}`; // Create a link to the post
+
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(content)
+    navigator.clipboard.writeText(content + "   "+ LinkPost) // Copy content to clipboard
       .then(() => {
         setIsCopied(true); // Show copy notification
         setTimeout(() => setIsCopied(false), 2000); // Hide after 2 seconds

@@ -372,6 +372,7 @@ const FetchPosts = () => {
             posts.length === index + 1 ? (
               <div ref={lastPostElementRef} key={post._id}>
                 <CardOfPost
+                  id = {post._id}
                   heading={post.title}
                   content={post.content}
                   username={post.userName}
@@ -382,6 +383,7 @@ const FetchPosts = () => {
               </div>
             ) : (
               <CardOfPost
+                id = {post._id}
                 key={post._id}
                 heading={post.title}
                 content={post.content}
