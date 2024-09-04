@@ -7,10 +7,13 @@ const CardOfPost = ({id, heading, content, username, createdAt, type }) => {
   const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
  
   const LinkPost = `https://galibazz.vercel.app/post/${id}`; // Create a link to the post
-
+  console.log(content);
+  
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(content + "   "+ LinkPost) // Copy content to clipboard
+   // navigator.clipboard.writeText(content + "  "+ LinkPost) // Copy content to clipboard
+   navigator.clipboard.writeText(`${content}\n${LinkPost}`)
+
       .then(() => {
         setIsCopied(true); // Show copy notification
         setTimeout(() => setIsCopied(false), 2000); // Hide after 2 seconds
