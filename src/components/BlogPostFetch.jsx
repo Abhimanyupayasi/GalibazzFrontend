@@ -45,8 +45,14 @@ const BlogPostFetch = () => {
     <div className="p-4">
       
         <div className='w-full mb-5 flex justify-center items-center'>
-          {token ? <h2 className="text-2xl font-bold text-white mb-2">Welcome! You're Logged In!</h2> : <h2 className="text-2xl font-bold text-white mb-2">
-            <h1 className="lg:text-3xl text-xl font-bold text-white mb-6">Feast Your Eyes on These Posts! But, Psst... Log in to Unlock the Full Buffet!</h1>
+          {token ? <h2 className="text-2xl font-bold text-white mb-2">
+            <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Welcome! </span>You're  <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">Logged In!</span> </h1>
+
+
+          </h2> : <h2 className="text-2xl font-bold text-white mb-2">
+            <h1 className="lg:text-3xl text-xl font-bold text-white mb-6">Feast Your Eyes on These Posts! But, Psst... 
+            <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Log in </span>to Unlock the  <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">Full Buffet!</span> </h1>
+            </h1>
             <div className='w-full justify-center flex items-center'>
             <LoginButton/>
             </div>
