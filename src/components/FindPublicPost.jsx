@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import CardOfPost from './CardOfPost';
 import { useSelector } from 'react-redux';
+import BlogPostFetch from './BlogPostFetch';
 
  // Ensure this path is correct
 
@@ -48,6 +49,7 @@ const FindPublicPost = () => {
   return (
     <div className="p-4">
       <CardOfPost
+        id={post._id}
         heading={post.title}
         content={post.content}
         username={post.userName}
@@ -55,6 +57,7 @@ const FindPublicPost = () => {
         type={post.type}
         contentStyle={{ whiteSpace: 'pre-wrap' }}  // Preserves line breaks
       />
+      <BlogPostFetch/>
     </div>
   );
 };
