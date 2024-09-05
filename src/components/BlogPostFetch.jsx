@@ -27,12 +27,12 @@ const BlogPostFetch = () => {
         const serverURL =  import.meta.env.VITE_API_URL;
        // const response = await axios.get('http://localhost:3000/api/newpost');
         const response = await axios.get(`${serverURL}/api/newpost`);
-        console.log(response.data);
+      //  console.log(response.data);
         
         setPosts(response.data); // Assuming response.data is the array of posts
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        //console.error('Error fetching posts:', error);
         setLoading(false);
       }
     };

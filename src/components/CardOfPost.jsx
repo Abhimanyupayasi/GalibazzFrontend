@@ -6,7 +6,7 @@ import { FaRegCopy, FaShareAlt, FaWhatsapp, FaFacebook, FaTwitter } from 'react-
 const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
   const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
   const [showShareOptions, setShowShareOptions] = useState(false); // Toggle share options visibility
-  
+
   const LinkPost = `https://galibazz.vercel.app/post/${id}`; // Create a link to the post
 
   const handleCopy = (textToCopy) => {
@@ -23,7 +23,7 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
 
   const handleShare = (platform) => {
     let shareUrl = "";
-    switch(platform) {
+    switch (platform) {
       case 'whatsapp':
         shareUrl = `https://wa.me/?text=${encodeURIComponent(`${content}\n${LinkPost}`)}`;
         break;
@@ -40,6 +40,21 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
     setShowShareOptions(false); // Close share options after sharing
   };
 
+  const handleNativeShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: heading,
+        text: content,
+        url: LinkPost,
+      })
+      .then(() => console.log('Successfully shared!'))
+      .catch((error) => console.error('Error sharing:', error));
+      setShowShareOptions(false); // Close share options after native sharing
+    } else {
+      alert("Sharing not supported on this device.");
+    }
+  };
+
   return (
     <div className="bg-gray-800 rounded-lg shadow-md p-6 mb-6 relative">
       <div className="flex justify-between items-center">
@@ -53,7 +68,6 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <span className="text-sm text-gray-400">Posted by {username}</span>
-          {/* Position the Verified badge closer to the username */}
           {(username === 'Galibazz.com' || username === 'galibazz.com') && (
             <span className="bg-blue-500 text-white py-1 px-2 rounded text-xs ml-2">
               Verified
@@ -72,9 +86,17 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
             <FaShareAlt size={18} />
             <span className="text-sm">Share</span>
           </button>
-          
+
           {showShareOptions && (
             <div className="absolute bottom-full left-0 bg-gray-900 text-white shadow-lg rounded-lg p-2 space-y-2">
+              {/* Web Share API (for mobile devices) */}
+              {navigator.share && (
+                <button onClick={handleNativeShare} className="flex items-center space-x-2 w-full text-left">
+                  <FaShareAlt size={18} className="text-green-500" />
+                  <span>Share via</span>
+                </button>
+              )}
+              {/* Individual Share Buttons */}
               <button onClick={() => handleShare('whatsapp')} className="flex items-center space-x-2 w-full text-left">
                 <FaWhatsapp size={18} className="text-green-500" />
                 <span>WhatsApp</span>
