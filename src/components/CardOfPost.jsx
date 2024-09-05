@@ -1,26 +1,38 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { FaRegCopy, FaCheckCircle } from 'react-icons/fa'; // Import copy and check-circle icons from react-icons
+import { FaRegCopy, FaCheckCircle, FaShareAlt } from 'react-icons/fa'; // Import copy, check-circle, and share icons
 
-const CardOfPost = ({id, heading, content, username, createdAt, type }) => {
+const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
   const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
- 
-  const LinkPost = `https://galibazz.vercel.app/post/${id}`; // Create a link to the post
-  console.log(content);
   
+  const LinkPost = `https://galibazz.vercel.app/post/${id}`; // Create a link to the post
 
   const handleCopy = () => {
-   // navigator.clipboard.writeText(content + "  "+ LinkPost) // Copy content to clipboard
-   navigator.clipboard.writeText(`${content}\n${LinkPost}`)
-
+    navigator.clipboard.writeText(`${content}\n${LinkPost}`) // Copy content and link to clipboard
       .then(() => {
         setIsCopied(true); // Show copy notification
         setTimeout(() => setIsCopied(false), 2000); // Hide after 2 seconds
       })
       .catch((err) => {
-        //console.error('Failed to copy text: ', err);
+        console.error('Failed to copy text: ', err);
       });
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      // If the browser supports the Web Share API
+      navigator.share({
+        title: heading,
+        text: `${content}\nCheck out this post on Galibazz:`,
+        url: LinkPost,
+      })
+      .then(() => console.log('Successfully shared'))
+      .catch((error) => console.error('Error sharing:', error));
+    } else {
+      // Fallback to copying link if share API is not supported
+      handleCopy();
+    }
   };
 
   return (
@@ -39,7 +51,6 @@ const CardOfPost = ({id, heading, content, username, createdAt, type }) => {
           {/* Conditionally render verification badge */}
           {(username === 'Galibazz.com' || username === 'galibazz.com') && (
             <div className="flex items-start ml-2">
-              
               <span className="bg-blue-500 text-white py-1 px-2 rounded text-xs">
                 Verified
               </span>
@@ -47,7 +58,16 @@ const CardOfPost = ({id, heading, content, username, createdAt, type }) => {
           )}
         </div>
         <div className="flex items-center space-x-2">
-          {/* Copy icon positioned next to the type badge */}
+          {/* Share icon */}
+          <button
+            onClick={handleShare}
+            className="text-gray-400 hover:text-white"
+            aria-label="Share post"
+          >
+            <FaShareAlt size={18} />
+          </button>
+
+          {/* Copy icon */}
           <button
             onClick={handleCopy}
             className="text-gray-400 hover:text-white"
@@ -70,6 +90,7 @@ const CardOfPost = ({id, heading, content, username, createdAt, type }) => {
 };
 
 CardOfPost.propTypes = {
+  id: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
