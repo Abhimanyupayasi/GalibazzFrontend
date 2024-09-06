@@ -272,8 +272,8 @@ const CreatePost = () => {
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
 
-  console.log(user);
-  console.log(token);
+  //console.log(user);
+  //console.log(token);
 
 
   

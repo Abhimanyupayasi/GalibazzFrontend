@@ -362,6 +362,9 @@ const FetchPosts = () => {
     fetchPosts();
   }, [page, token]);
 
+  //console.log(posts);
+  
+
   if (error) return <p>Error fetching posts: {error}</p>;
   
   return (
@@ -380,6 +383,7 @@ const FetchPosts = () => {
               <div ref={lastPostElementRef} key={post._id}>
                 <CardOfPost
                   id = {post._id}
+                  email = {post.userEmail}
                   heading={post.title}
                   content={post.content}
                   username={post.userName}
@@ -391,6 +395,7 @@ const FetchPosts = () => {
             ) : (
               <CardOfPost
                 id = {post._id}
+                email = {post.userEmail}
                 key={post._id}
                 heading={post.title}
                 content={post.content}

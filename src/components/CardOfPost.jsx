@@ -1,33 +1,39 @@
+import { useState } from 'react';
+import { FaShareAlt, FaWhatsapp, FaFacebook, FaTwitter, FaRegCopy, FaTrash } from 'react-icons/fa';
+import moment from 'moment';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+
 const sanitizeUsername = (username) => {
-  // Remove @gmail.com part if it exists
   if (username.includes('@gmail.com')) {
     return username.split('@gmail.com')[0];
   }
   return username;
 };
 
-import { useState } from 'react';
-import { FaShareAlt, FaWhatsapp, FaFacebook, FaTwitter, FaRegCopy } from 'react-icons/fa';
-import moment from 'moment';
+const CardOfPost = ({ id, email, heading, content, username, createdAt, type }) => {
 
+  
+  const [isCopied, setIsCopied] = useState(false);
+  const [showShareOptions, setShowShareOptions] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state for deletion
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false); // Confirmation modal state
+  const [error, setError] = useState(''); // Error state to display errors
 
+  const user = useSelector((state) => state.auth.user);
+  const token = useSelector((state) => state.auth.token);
+   // Assuming the user data contains email
 
-const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
-  const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
-  const [showShareOptions, setShowShareOptions] = useState(false); // Toggle share options visibility
-
-  const LinkPost = `https://galibazz.vercel.app/post/${id}`; // Create a link to the post
+  const LinkPost = `https://galibazz.vercel.app/post/${id}`;
 
   const handleCopy = (textToCopy) => {
-    navigator.clipboard.writeText(textToCopy) // Copy content and link to clipboard
+    navigator.clipboard.writeText(textToCopy)
       .then(() => {
-        setIsCopied(true); // Show copy notification
-        setShowShareOptions(false); // Close share options after copying
-        setTimeout(() => setIsCopied(false), 2000); // Hide after 2 seconds
+        setIsCopied(true);
+        setShowShareOptions(false);
+        setTimeout(() => setIsCopied(false), 2000);
       })
-      .catch((err) => {
-        console.error('Failed to copy text: ', err);
-      });
+      .catch((err) => console.error('Failed to copy text: ', err));
   };
 
   const handleShare = (platform) => {
@@ -46,7 +52,7 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
         break;
     }
     window.open(shareUrl, '_blank');
-    setShowShareOptions(false); // Close share options after sharing
+    setShowShareOptions(false);
   };
 
   const handleNativeShare = () => {
@@ -56,11 +62,36 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
         text: content,
         url: LinkPost,
       })
-      .then(() => console.log('Successfully shared!'))
-      .catch((error) => console.error('Error sharing:', error));
-      setShowShareOptions(false); // Close share options after native sharing
+        .then(() => console.log('Successfully shared!'))
+        .catch((error) => console.error('Error sharing:', error));
+      setShowShareOptions(false);
     } else {
       alert("Sharing not supported on this device.");
+    }
+  };
+
+  const handleDelete = async () => {
+    setLoading(true);
+    try {
+      const serverURL =  import.meta.env.VITE_API_URL;
+      const response = await axios.get(`${serverURL}/delete/${id}`,
+        {
+          
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        window.location.reload(); // Refetch the posts after deletion
+      }
+    } catch (err) {
+      setError('Error deleting post');
+      setTimeout(() => setError(''), 2000); // Clear error after 2 seconds
+    } finally {
+      setLoading(false);
+      setShowConfirmDelete(false); // Close the confirmation modal
     }
   };
 
@@ -83,6 +114,18 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
             </span>
           )}
         </div>
+
+        {/* Show delete button if email matches */}
+        {email === user.email && (
+          <button
+            onClick={() => setShowConfirmDelete(true)} // Show confirmation modal
+            disabled={loading}
+            className="text-red-500 hover:text-red-700 flex items-center space-x-2"
+          >
+            <FaTrash size={16} />
+            <span>{loading ? 'Deleting...' : 'Delete'}</span>
+          </button>
+        )}
       </div>
 
       <div className="flex justify-between items-center mt-4">
@@ -98,14 +141,12 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
 
           {showShareOptions && (
             <div className="absolute bottom-full left-0 bg-gray-900 text-white shadow-lg rounded-lg p-2 space-y-2">
-              {/* Web Share API (for mobile devices) */}
               {navigator.share && (
                 <button onClick={handleNativeShare} className="flex items-center space-x-2 w-full text-left">
                   <FaShareAlt size={18} className="text-green-500" />
                   <span>Share via</span>
                 </button>
               )}
-              {/* Individual Share Buttons */}
               <button onClick={() => handleShare('whatsapp')} className="flex items-center space-x-2 w-full text-left">
                 <FaWhatsapp size={18} className="text-green-500" />
                 <span>WhatsApp</span>
@@ -126,7 +167,6 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
           )}
         </div>
 
-        {/* Bottom right: Copy and type */}
         <div className="flex items-center space-x-2">
           <button
             onClick={() => handleCopy(`${content}\n${LinkPost}`)}
@@ -143,6 +183,37 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
       {isCopied && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-[#00BCD4] text-black py-2 px-4 rounded shadow-md z-50">
           Content copied to clipboard!
+        </div>
+      )}
+
+      {/* Error message */}
+      {error && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white py-2 px-4 rounded shadow-md z-50">
+          {error}
+        </div>
+      )}
+
+      {/* Delete confirmation modal */}
+      {showConfirmDelete && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-lg font-bold mb-4">Are you sure you want to delete this post?</h2>
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={() => setShowConfirmDelete(false)}
+                className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDelete}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+                disabled={loading}
+              >
+                {loading ? 'Deleting...' : 'Delete'}
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

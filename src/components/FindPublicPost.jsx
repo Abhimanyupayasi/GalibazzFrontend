@@ -50,6 +50,7 @@ const FindPublicPost = () => {
     <div className="p-4">
       <CardOfPost
         id={post._id}
+        email={post.userEmail}
         heading={post.title}
         content={post.content}
         username={post.userName}
