@@ -1001,7 +1001,7 @@ function GaliyaFetch() {
             "username": "Galibazz.com",
             "createdAt": "1897-10-16T21:48:54.743Z"
         },
-
+    
         {
           "id": 19,
           "heading": "कायर",
@@ -1172,7 +1172,7 @@ function GaliyaFetch() {
       },
       {
         "id": 40,
-        "heading": "मलबाज़",
+        "heading": "मालबाज़",
         "content": "किसी को बेकार और घटिया स्वभाव का बताने के लिए दी जाने वाली गाली।",
         "type": "bad",
         "username": "Galibazz.com",
@@ -1220,7 +1220,7 @@ function GaliyaFetch() {
       },
       {
         "id": 46,
-        "heading": "मकड़ा",
+        "heading": " माकड़ा",
         "content": "किसी को चालाक और घातक बताने के लिए दी जाने वाली गाली।",
         "type": "bad",
         "username": "Galibazz.com",
@@ -1281,6 +1281,175 @@ function GaliyaFetch() {
         "type": "verybad",
         "username": "Galibazz.com",
         "createdAt": "20-05-2024"
+      },
+     {
+        "id": 54,
+        "heading": "घंटा",
+        "content": "क्रुद्ध होने पर किसी को कही जाने वाली  गाली।",
+        "type": "verybad",
+        "username": "Galibazz.com",
+        "createdAt": "20-05-2024"
+      },
+     {
+        "id": 55,
+        "heading": "बहन के लंड",
+        "content": "इस गाली का उपयोग ऐसे मौकों पर किया जा सकता है जब कोई व्यक्ति गुस्से की स्थिति में हो ।",
+        "type": "verybad",
+        "username": "Galibazz.com",
+        "createdAt": "23-05-2024"
+      },
+    { 
+        "id": 56,
+        "heading": "मां चुदा ",
+        "content": "इस गाली का उपयोग ऐसे मौकों पर किया जा सकता है जब कोई व्यक्ति गुस्से, जल्दी आदि की स्थिति में हो ।",
+        "type": "verybad",
+        "username": "Galibazz.com",
+        "createdAt": "25-05-2024"
+      },
+    { 
+        "id": 57,
+        "heading": "गांड मरा ",
+        "content": " गुस्से, जल्दी आदि पर क्रुद्ध होने पर किसी को कही जाने वाली  गाली ।",
+        "type": "verybad",
+        "username": "Galibazz.com",
+        "createdAt": "27-05-2024"
+      },
+    { 
+        "id": 58,
+        "heading": "दाई चोद ",
+        "content": " यह अत्यधिक अपमानजनक गाली है, किसी की माँ का अपमान करने के लिए।",
+        "type": "verybad",
+        "username": "Galibazz.com",
+        "createdAt": "27-05-2024"
+      },
+    { 
+        "id": 59,
+        "heading": "दुष्ट ",
+        "content": " एक गंभीर व क्रूर धमकी वाला मुहावरा है, जो किसी गाली से बढकर व वृहत अर्थ वाली है।",
+        "type": "verybad",
+        "username": "Galibazz.com",
+        "createdAt": "28-05-2024"
+      },
+    { 
+        "id": 60,
+        "heading": "बकचोद ",
+        "content": " बेवजह और फ़ालतू की बातें करने पर कही जाने वाली  गाली।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "28-05-2024"
+      },
+    { 
+        "id": 61,
+        "heading": "चिरकुट ",
+        "content": " सस्ता,गंदा,मूल्यरहीत,घटिया,बेवफा पर कही जाने वाली  गाली।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "29-05-2024"
+      },
+    { 
+        "id": 62,
+        "heading": "दोगला ",
+        "content": "पाखंडी,ढोंगी,पर कही जाने वाली  गाली।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "29-05-2024"
+      },
+    { 
+        "id": 63,
+        "heading": "चोदू ",
+        "content": "इस शब्द का इस्तेमाल आम तौर पर मज़ाक या हल्के अपमान के लिए किया जाता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "29-05-2024"
+      },
+    { 
+        "id": 64,
+        "heading": "मच्छर की झाट ",
+        "content": "इस शब्द का इस्तेमाल आम तौर पर मज़ाक या हल्के अपमान के लिए किया जाता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    { 
+        "id": 65,
+        "heading": "लपड़झंडीस",
+        "content": " जिसके व्यवहार से बुद्धि, सामान्य ज्ञान या अच्छे निर्णय की कमी का पता चलता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    
+    { 
+        "id": 66,
+        "heading": "लौड़े के बाल ",
+        "content": "इस शब्द का इस्तेमाल आम तौर पर मज़ाक या हल्के अपमान के लिए किया जाता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    { 
+        "id": 67,
+        "heading": "झांटू ",
+        "content": "इस शब्द का इस्तेमाल आम तौर पर मज़ाक या हल्के अपमान के लिए किया जाता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    { 
+        "id": 68,
+        "heading": "लोंडियाबाज ",
+        "content": "किसी को व्यभिचारी और अनैतिक व्यक्तित्व बताने के लिए दी जाने वाली गाली।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    { 
+        "id": 69,
+        "heading": "झंडू ",
+        "content": "इस शब्द का इस्तेमाल आम तौर पर मज़ाक या हल्के अपमान के लिए किया जाता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    { 
+        "id": 70,
+        "heading": "गधे की गांड ",
+        "content": "इस शब्द का इस्तेमाल आम तौर पर मज़ाक या हल्के अपमान के लिए किया जाता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    { 
+        "id": 71,
+        "heading": "आंटीबाज ",
+        "content": "किसी को अनैतिक व्यक्तित्व बताने के लिए दी जाने वाली गाली।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "30-05-2024"
+      },
+    { 
+        "id": 72,
+        "heading": " चरित्रहीन",
+        "content": "किसी के चरित्र को खराब और घृणित बताने के लिए दी जाने वाली गाली।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "01-06-2024"
+      },
+    { 
+        "id": 73,
+        "heading": "जाहिल ",
+        "content": "किसी को असभ्य बताने के लिए दी जाने वाली गाली।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "01-06-2024"
+      },
+    { 
+        "id": 74,
+        "heading": "नज़ायज़ ",
+        "content": "इस शब्द का इस्तेमाल आम तौर पर वह मनुष्य जो अपनी माता के असली पति से नहीं बल्कि उसके यार से उत्पन्न हुआ हो,अपमान के लिए किया जाता है।",
+        "type": "bad",
+        "username": "Galibazz.com",
+        "createdAt": "01-06-2024"
       },
       
     
