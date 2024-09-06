@@ -13,6 +13,10 @@ const sanitizeUsername = (username) => {
 
 const CardOfPost = ({ id, email, heading, content, username, createdAt, type }) => {
 
+  if(!email || email === "" || email === "null" || email === "undefined" || email === "undifined" ) {
+    email = "undifined@gmail.com";
+  }
+
   
   const [isCopied, setIsCopied] = useState(false);
   const [showShareOptions, setShowShareOptions] = useState(false);
@@ -20,7 +24,13 @@ const CardOfPost = ({ id, email, heading, content, username, createdAt, type }) 
   const [showConfirmDelete, setShowConfirmDelete] = useState(false); // Confirmation modal state
   const [error, setError] = useState(''); // Error state to display errors
 
-  const user = useSelector((state) => state.auth.user);
+  const user = useSelector((state) => state.auth.user) || {
+    email: 'abcdd@gmail.com',
+  };
+
+
+
+  
   const token = useSelector((state) => state.auth.token);
    // Assuming the user data contains email
 

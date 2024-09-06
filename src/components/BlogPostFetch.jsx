@@ -21,14 +21,24 @@ const BlogPostFetch = () => {
     if (node) observer.current.observe(node);
   }, [loading]);
 
+  console.log(posts);
+
+  posts.map((post) => {
+    console.log(post.userEmail);
+  });
+  
+  
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
         const serverURL =  import.meta.env.VITE_API_URL;
-       // const response = await axios.get('http://localhost:3000/api/newpost');
-        const response = await axios.get(`${serverURL}/api/newpost`);
+       const response = await axios.get('http://localhost:3000/api/newpost');
+       // const response = await axios.get(`${serverURL}/api/newpost`);
       //  console.log(response.data);
+
+      console.log(response.data);
         
         setPosts(response.data); // Assuming response.data is the array of posts
         setLoading(false);
@@ -70,22 +80,35 @@ const BlogPostFetch = () => {
         <div className="space-y-4">
           {posts.map((post, index) => (
             posts.length === index + 1 ? (
+              // <div ref={lastPostElementRef} key={post._id}>
+              //   <CardOfPost
+              //     id={post._id}
+              //     email={post.userEmail}
+              //     heading={post.title}
+              //     content={post.content}
+              //     username={post.userName}
+              //     createdAt={post.createdAt}
+              //     type={post.type}
+              //     contentStyle={{ whiteSpace: 'pre-wrap' }}  // Preserves line breaks
+              //   />
+              // </div>
               <div ref={lastPostElementRef} key={post._id}>
-                <CardOfPost
-                  id={post._id}
-                  email={post.userEmail}
-                  heading={post.title}
-                  content={post.content}
-                  username={post.userName}
-                  createdAt={post.createdAt}
-                  type={post.type}
-                  contentStyle={{ whiteSpace: 'pre-wrap' }}  // Preserves line breaks
-                />
-              </div>
+  <CardOfPost
+    id={post._id}
+    email= {post.userEmail}  // Add a fallback here
+    heading={post.title}
+    content={post.content}
+    username={post.userName}
+    createdAt={post.createdAt}
+    type={post.type}
+    contentStyle={{ whiteSpace: 'pre-wrap' }}  // Preserves line breaks
+  />
+</div>
+
             ) : (
               <CardOfPost
                 id={post._id}
-                email={post.userEmail}
+                email= {post.userEmail}  // Add a fallback here
                 key={post._id}
                 heading={post.title}
                 content={post.content}

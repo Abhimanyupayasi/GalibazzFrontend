@@ -297,6 +297,11 @@ const CreatePost = () => {
       setTitle('');
       setContent('');
       setType('shayri');
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+
     } catch (err) {
       setError(err.message);
       toast.error('Error creating post');
