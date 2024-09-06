@@ -3,6 +3,7 @@ import axios from 'axios';
 import CardOfPost from './CardOfPost'; // Assuming CardOfPost is your custom component
 import LoginButton from './Buttons/LoginButton';
 import { useSelector } from 'react-redux';
+import IntroButton from './Galiya/IntroButton';
 
 const BlogPostFetch = () => {
   const [posts, setPosts] = useState([]);
@@ -44,7 +45,7 @@ const BlogPostFetch = () => {
     
     <div className="p-4">
       
-        <div className='w-full mb-5 flex justify-center items-center'>
+        <div className='w-full mb-2 flex justify-center items-center'>
           {token ? <h2 className="text-2xl font-bold text-white mb-2">
             <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Welcome! </span>You're  <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">Logged In!</span> </h1>
 
@@ -55,6 +56,9 @@ const BlogPostFetch = () => {
             </h1>
             <div className='w-full justify-center flex items-center'>
             <LoginButton/>
+            </div>
+            <div className='w-full textarea-md mt-5 justify-center flex items-center'>
+              <IntroButton/>
             </div>
             
             </h2>}

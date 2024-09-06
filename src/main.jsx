@@ -33,6 +33,10 @@ import ProfilePage from './pages/ProfilePage';
 import NoAuth from './layouts/NoAuth';
 import SinglePostPage from './components/SinglePostPage';
 import FindPublicPost from './components/FindPublicPost';
+import GaliyaFetch from './components/Galiya/GaliyaFetch';
+import PublicGali from './components/Galiya/PublicGali';
+import SinglePublicGali from './components/Galiya/SinglePublicGali';
+import AuthSingleGaliPage from './components/Galiya/AuthSinglePage';
 
 
 const router = createBrowserRouter(
@@ -47,12 +51,16 @@ const router = createBrowserRouter(
         <Route path='contact' element={<ContectPage/>}/>
         <Route path='blog' element={<BlogPage/>}/>
         <Route path="post/:id" element={<SinglePostPage />} />
+        <Route path="gali" element={<PublicGali/>} />
+        <Route path="gali/:id" element={<SinglePublicGali />} />
       </Route>
       <Route path='*' element={<AuthLayout/>}>
         <Route path='posts' element={<AllPostPage/>}/>
         <Route path='posts/:id' element={<FindPublicPost/>}/>
         <Route path='profile' element={<ProfilePage/>}/>
         <Route path='create-post' element={<CreatePostPage/>}/>
+        <Route path='galiya' element={<GaliyaFetch/>}/>
+        <Route path='galiya/:id' element={<AuthSingleGaliPage/>} />
 
       </Route>
       

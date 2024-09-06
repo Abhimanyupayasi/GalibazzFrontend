@@ -272,13 +272,21 @@ const CreatePost = () => {
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
 
+  console.log(user);
+  console.log(token);
+
+
+  
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
     const serverURL =  import.meta.env.VITE_API_URL;
-    
+     
+     
 
     try {
       const post = { title, content, type, userEmail: user.email, userName: user.name };

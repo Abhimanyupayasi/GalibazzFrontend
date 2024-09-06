@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+const sanitizeUsername = (username) => {
+  // Remove @gmail.com part if it exists
+  if (username.includes('@gmail.com')) {
+    return username.split('@gmail.com')[0];
+  }
+  return username;
+};
+
+import { useState } from 'react';
+import { FaShareAlt, FaWhatsapp, FaFacebook, FaTwitter, FaRegCopy } from 'react-icons/fa';
 import moment from 'moment';
-import { FaRegCopy, FaShareAlt, FaWhatsapp, FaFacebook, FaTwitter } from 'react-icons/fa'; // Importing share icons
+
+
 
 const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
   const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
@@ -67,8 +76,8 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
 
       <div className="flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-sm text-gray-400">Posted by {username}</span>
-          {(username === 'Galibazz.com' || username === 'galibazz.com') && (
+          <span className="text-sm text-gray-400">Posted by {sanitizeUsername(username)}</span>
+          {(sanitizeUsername(username) === 'Galibazz.com' || sanitizeUsername(username) === 'galibazz.com') && (
             <span className="bg-blue-500 text-white py-1 px-2 rounded text-xs ml-2">
               Verified
             </span>
@@ -138,15 +147,6 @@ const CardOfPost = ({ id, heading, content, username, createdAt, type }) => {
       )}
     </div>
   );
-};
-
-CardOfPost.propTypes = {
-  id: PropTypes.string.isRequired,
-  heading: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  createdAt: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
 };
 
 export default CardOfPost;

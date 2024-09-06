@@ -308,6 +308,9 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import axios from 'axios';
 import CardOfPost from './CardOfPost'; // Ensure you have this component to display individual posts
 import { useSelector } from 'react-redux';
+import IntroButton from './Galiya/IntroButton';
+
+
 
 const FetchPosts = () => {
 
@@ -360,10 +363,14 @@ const FetchPosts = () => {
   }, [page, token]);
 
   if (error) return <p>Error fetching posts: {error}</p>;
-
+  
   return (
     <div className="p-4">
+      
+        
+      
       <h1 className="text-3xl font-bold text-white mb-6">All Posts</h1>
+      <IntroButton/>
       {posts.length === 0 && !loading ? (
         <p className="text-gray-400">No posts available</p>
       ) : (
