@@ -57,9 +57,9 @@ const BlogPostFetch = () => {
             <div className='w-full justify-center flex items-center'>
             <LoginButton/>
             </div>
-            <div className='w-full textarea-md mt-5 justify-center flex items-center'>
+            {/* <div className='w-full textarea-md mt-5 justify-center flex items-center'>
               <IntroButton/>
-            </div>
+            </div> */}
             
             </h2>}
           {/* <LoginButton/> */}

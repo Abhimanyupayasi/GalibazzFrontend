@@ -1,16 +1,22 @@
 import React from 'react'
 import GaliBazz from './GaliBazz'
 import BlogPostFetch from './BlogPostFetch'
+import Vortex from './BlogComponentUi'
+import GalibazzWelcome from './BlogComponentUi'
+
 
 function Blog() {
   return (
     <div>
-      <div className='pt-10 bg-[#1F2937]'>
+      {/* <div className='pt-10 bg-[#1F2937]'>
       <GaliBazz/>
-      </div>
+      </div> */}
+      {/* <Vortex/> */}
+      <GalibazzWelcome/>
+      
       
 
-      <div className='flex w-full  items-center justify-center bg-[#1F2937]'>
+      {/* <div className='flex w-full  items-center justify-center bg-[#1F2937]'>
 
       <div className="mockup-code mt-10 mb-10">
       <pre data-prefix="1"><code>We are developing the blog website</code></pre>
@@ -19,7 +25,7 @@ function Blog() {
 
 </div>
       
-      </div>
+      </div> */}
 
       <BlogPostFetch/>
       
