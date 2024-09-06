@@ -34,8 +34,8 @@ const BlogPostFetch = () => {
       try {
         setLoading(true);
         const serverURL =  import.meta.env.VITE_API_URL;
-       const response = await axios.get('http://localhost:3000/api/newpost');
-       // const response = await axios.get(`${serverURL}/api/newpost`);
+      //  const response = await axios.get('http://localhost:3000/api/newpost');
+        const response = await axios.get(`${serverURL}/api/newpost`);
       //  console.log(response.data);
 
       console.log(response.data);
@@ -93,7 +93,7 @@ const BlogPostFetch = () => {
               //   />
               // </div>
               <div ref={lastPostElementRef} key={post._id}>
-  <CardOfPost
+  <CardOfPost 
     id={post._id}
     email= {post.userEmail}  // Add a fallback here
     heading={post.title}
