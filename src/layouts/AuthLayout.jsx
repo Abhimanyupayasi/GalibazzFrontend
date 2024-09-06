@@ -7,6 +7,8 @@ import ProfilePicture from '../components/ProfilePicture';
 import handleVerifyToken from '../middleware/useApi';
 import EmailVerify from '../components/EmailVerify';
 import { logout } from '../store/authSlice';
+import { GoArrowRight } from "react-icons/go";
+
 
 function AuthLayout() {
   const [showNotification, setShowNotification] = useState(true);
@@ -72,9 +74,12 @@ function AuthLayout() {
               <Link to="/">
                 <Logo />
               </Link>
-              <nav className="space-x-4 flex">
+              <nav className="space-x-4 text-lg items-center justify-center flex">
+              <GoArrowRight size={25}/>
                 <Link to="/profile">
+                
                   <ProfilePicture image={user?.picture} />
+                  
                 </Link>
                 <LoginButton />
                 {showNotification && (

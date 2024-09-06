@@ -2,6 +2,7 @@ import React from 'react'
 import DivInformation from './DivInformation'
 import { useSelector } from 'react-redux'
 import ProfilePicture from '../ProfilePicture'
+import ProfilePostFetch from '../ProfilePostFetch'
 
 function ViewEditProfile() {
 
@@ -13,7 +14,7 @@ function ViewEditProfile() {
 
   return (
     <>
-    <div className='w-full flex items-center justify-center bg-gray-800'>
+    <div className='w-full py-4 flex items-center justify-center bg-gray-800'>
       <div className='w-9/12  flex justify-around items-center'>
       <div className='w-1/2'>
         <ProfilePicture style={`w-1/3`} image={image}/>
@@ -21,13 +22,14 @@ function ViewEditProfile() {
       <div>
       <DivInformation item={name}/>
       <DivInformation item={email}/>
-      <DivInformation item='Edit Profile'/>
+      <DivInformation item='Galibazz User'/>
 
       </div>
 
 
       </div>
     </div>
+    {/* <ProfilePostFetch/> */}
     </>
   )
 }
