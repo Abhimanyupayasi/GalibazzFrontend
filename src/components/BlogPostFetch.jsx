@@ -21,11 +21,9 @@ const BlogPostFetch = () => {
     if (node) observer.current.observe(node);
   }, [loading]);
 
-  console.log(posts);
+  //console.log(posts);
 
-  posts.map((post) => {
-    console.log(post.userEmail);
-  });
+ 
   
   
 
@@ -38,7 +36,7 @@ const BlogPostFetch = () => {
         const response = await axios.get(`${serverURL}/api/newpost`);
       //  console.log(response.data);
 
-      console.log(response.data);
+     // console.log(response.data);
         
         setPosts(response.data); // Assuming response.data is the array of posts
         setLoading(false);

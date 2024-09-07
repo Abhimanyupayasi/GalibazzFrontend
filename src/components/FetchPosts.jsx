@@ -374,7 +374,7 @@ const FetchPosts = () => {
         
       
       <h1 className="text-3xl font-bold text-white mb-6">All Posts</h1>
-      <div className='w-full flex justify-between items-center'>
+      <div className='w-full  lg:flex justify-between items-center'>
       <IntroButton/>
       <RedirectSongs/>
       </div>
