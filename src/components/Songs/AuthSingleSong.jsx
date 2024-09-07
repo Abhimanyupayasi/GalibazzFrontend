@@ -24,7 +24,7 @@ function AuthSingleSong() {
     <>
       
       
-      <div className="min-h-screen bg-[#1F2937] flex items-center justify-center p-4">
+      <div className="py-5 bg-[#1F2937] flex items-center justify-center p-4">
         <motion.div
           className="bg-gray-900 rounded-lg shadow-lg overflow-hidden w-full max-w-3xl lg:max-w-4xl"
           initial={{ opacity: 0, scale: 0.8 }}
