@@ -309,6 +309,7 @@ import axios from 'axios';
 import CardOfPost from './CardOfPost'; // Ensure you have this component to display individual posts
 import { useSelector } from 'react-redux';
 import IntroButton from './Galiya/IntroButton';
+import RedirectSongs from './Songs/RedirectSongs';
 
 
 
@@ -373,7 +374,11 @@ const FetchPosts = () => {
         
       
       <h1 className="text-3xl font-bold text-white mb-6">All Posts</h1>
+      <div className='w-full flex justify-between items-center'>
       <IntroButton/>
+      <RedirectSongs/>
+      </div>
+      
       {posts.length === 0 && !loading ? (
         <p className="text-gray-400">No posts available</p>
       ) : (

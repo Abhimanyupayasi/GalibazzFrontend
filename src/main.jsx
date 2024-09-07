@@ -37,6 +37,10 @@ import GaliyaFetch from './components/Galiya/GaliyaFetch';
 import PublicGali from './components/Galiya/PublicGali';
 import SinglePublicGali from './components/Galiya/SinglePublicGali';
 import AuthSingleGaliPage from './components/Galiya/AuthSinglePage';
+import SinglePublicSong from './components/Songs/SinglePublicSong';
+import SongHome from './components/Songs/SongHome';
+import AuthSong from './components/Songs/AuthSong';
+import AuthSingleSong from './components/Songs/AuthSingleSong';
 
 
 const router = createBrowserRouter(
@@ -53,6 +57,8 @@ const router = createBrowserRouter(
         <Route path="post/:id" element={<SinglePostPage />} />
         <Route path="gali" element={<PublicGali/>} />
         <Route path="gali/:id" element={<SinglePublicGali />} />
+        <Route path='song' element={<SongHome/>}/>
+        <Route path='song/:id' element={<SinglePublicSong/>}/>
       </Route>
       <Route path='*' element={<AuthLayout/>}>
         <Route path='posts' element={<AllPostPage/>}/>
@@ -61,6 +67,8 @@ const router = createBrowserRouter(
         <Route path='create-post' element={<CreatePostPage/>}/>
         <Route path='galiya' element={<GaliyaFetch/>}/>
         <Route path='galiya/:id' element={<AuthSingleGaliPage/>} />
+        <Route path='songs' element={<AuthSong/>}/>
+        <Route path='songs/:id' element={<AuthSingleSong/>}/>
 
       </Route>
       
