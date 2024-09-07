@@ -69,6 +69,7 @@ const router = createBrowserRouter(
         <Route path='galiya/:id' element={<AuthSingleGaliPage/>} />
         <Route path='songs' element={<AuthSong/>}/>
         <Route path='songs/:id' element={<AuthSingleSong/>}/>
+        <Route path='*' element={<App/>}/>
 
       </Route>
       
