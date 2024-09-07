@@ -34,7 +34,7 @@ const CardOfPost = ({ id, email, heading, content, username, createdAt, type }) 
   const token = useSelector((state) => state.auth.token);
    // Assuming the user data contains email
 
-  const LinkPost = `https://galibazz.vercel.app/post/${id}`;
+  const LinkPost = `https://galibazz.live/post/${id}`;
 
   const handleCopy = (textToCopy) => {
     navigator.clipboard.writeText(textToCopy)

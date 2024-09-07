@@ -16,7 +16,7 @@ const sanitizeUsername = (username) => {
     const [isCopied, setIsCopied] = useState(false); // State to manage copy notification visibility
     const [showShareOptions, setShowShareOptions] = useState(false); // Toggle share options visibility
   
-    const LinkPost = `https://galibazz.vercel.app/gali/${id}`; // Create a link to the post
+    const LinkPost = `https://galibazz.live/gali/${id}`; // Create a link to the post
   
     const handleCopy = (textToCopy) => {
       navigator.clipboard.writeText(textToCopy) // Copy content and link to clipboard
