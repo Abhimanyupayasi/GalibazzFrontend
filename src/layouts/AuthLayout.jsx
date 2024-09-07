@@ -75,7 +75,10 @@ function AuthLayout() {
                 <Logo />
               </Link>
               <nav className="space-x-4 text-lg items-center justify-center flex">
+              <Link to="/profile">
               <GoArrowRight size={25}/>
+              </Link>
+              
                 <Link to="/profile">
                 
                   <ProfilePicture image={user?.picture} />
