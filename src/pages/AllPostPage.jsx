@@ -2,6 +2,7 @@ import React from 'react'
 import FetchPosts from '../components/FetchPosts'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import Footer from '../components/Footer'
 
 function AllPostPage() {
   const user = useSelector((state) => state.auth.user) || null
@@ -40,6 +41,7 @@ function AllPostPage() {
         
         
         <FetchPosts/>
+        {/* <Footer/> */}
     </div>
   )
 }
