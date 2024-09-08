@@ -68,7 +68,15 @@ const ProfilePostFetch = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-bold text-white mb-6">  Posts</h1>
+      <h2 class="text-lg font-semibold text-gray-300">
+  For any query, mail us at  &nbsp;
+  <a href="mailto:galibazz.in@gmail.com" class="text-primary hover:underline">
+    galibazz.in@gmail.com
+  </a>
+</h2>
+
+      <h1 className="text-3xl mt-3 font-bold text-white mb-6"> Yours Posts</h1>
+      
       {posts.length === 0 && !loading ? (
         <p className="text-gray-400">No posts available</p>
       ) : (
