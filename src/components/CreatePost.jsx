@@ -257,10 +257,12 @@
 // export default CreatePost;
 
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { logout } from '../store/authSlice'; // Import the logout action
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -271,22 +273,15 @@ const CreatePost = () => {
 
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
-
-  //console.log(user);
-  //console.log(token);
-
-
-  
-  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
-    const serverURL =  import.meta.env.VITE_API_URL;
-     
-     
+    const serverURL = import.meta.env.VITE_API_URL;
 
     try {
       const post = { title, content, type, userEmail: user.email, userName: user.name };
@@ -301,10 +296,15 @@ const CreatePost = () => {
       setTimeout(() => {
         window.location.reload();
       }, 2000);
-
     } catch (err) {
+      // Handle error and logout
       setError(err.message);
-      toast.error('Error creating post');
+      toast.error('Error creating post. Logging out...');
+      
+      dispatch(logout()); // Dispatch the logout action to clear user state
+      localStorage.removeItem('user'); // Remove user from localStorage
+      localStorage.removeItem('token'); // Remove token from localStorage
+      navigate('/'); // Redirect to home page
     } finally {
       setLoading(false);
     }
@@ -364,5 +364,3 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
-
-
