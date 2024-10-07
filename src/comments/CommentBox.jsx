@@ -22,8 +22,8 @@ function CommentBox({ text, userName, postId, userEmail, id, createdAt }) {
   const token = useSelector((state) => state.auth.token);
   const userEmailfromState = user ? user.email : null;
 
-  console.log(userEmailfromState);
-  console.log(userEmail);
+  //console.log(userEmailfromState);
+ // console.log(userEmail);
   
   
 
@@ -38,7 +38,7 @@ function CommentBox({ text, userName, postId, userEmail, id, createdAt }) {
         },
       });
 
-      console.log(response);
+     // console.log(response);
     } catch (err) {
       setError(err.message);
     } finally {

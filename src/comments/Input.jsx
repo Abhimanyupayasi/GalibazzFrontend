@@ -76,7 +76,7 @@ function Input({POST_ID}) {
                     type='submit'
                     className= 'rounded-tr-md text-sm flex justify-center items-center rounded-br-md h-11 gap-2 bg-blue-500 text-white lg:px-2 px-1 py-2'
                 >
-                    {loading ? 'Adding comment...' : `Add Comment `} <IoMdSend className='lg:text-2xl text-md' />
+                    {loading ? 'Adding' : ``} <IoMdSend className='lg:text-2xl text-md' />
                 </button>
             </form>
         </div>
