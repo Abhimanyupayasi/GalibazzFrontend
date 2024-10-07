@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import '../css/About.css'; // Assuming you have a CSS file for styling
 import Logo from './Logo';
 import GaliBazz from './GaliBazz';
+import FetchComment from '../comments/FetchComment';
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -41,6 +42,11 @@ const About = () => {
 
   return (
     <div ref={ref} className="about-container bg-gray-800 text-gray-100 p-10 flex flex-col items-center">
+
+      
+
+
+
       <motion.div
         initial="hidden"
         animate={controls}
