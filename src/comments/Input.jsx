@@ -64,17 +64,17 @@ function Input({POST_ID}) {
 
         user ? ( 
             <div className='w-full flex justify-center items-center flex-col'>
-            <form className='lg:w-2/3 w-11/12 flex justify-center items-center' onSubmit={handleSubmit}>
+            <form className='lg:w-2/3 w-full flex justify-center items-center' onSubmit={handleSubmit}>
                 <input
                     type='text'
                     placeholder='Add a comment'
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    className='border rounded-tl-md h-11 rounded-bl-md border-gray-400 p-2 w-8/12 lg:w-2/4'
+                    className='border rounded-tl-md h-11 rounded-bl-md border-gray-400 p-2 w-full lg:w-2/4'
                 />
                 <button
                     type='submit'
-                    className= 'rounded-tr-md text-sm flex justify-center items-center rounded-br-md h-11 gap-2 bg-blue-500 text-white lg:px-2 px-1 py-2'
+                    className= 'rounded-tr-md text-sm flex justify-center items-center rounded-br-md h-11 gap-2 bg-blue-500  text-white lg:px-2 px-3 py-2'
                 >
                     {loading ? 'Adding' : ``} <IoMdSend className='lg:text-2xl text-md' />
                 </button>
