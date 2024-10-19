@@ -13,7 +13,11 @@ function HomePage() {
         
         <Home/>
         <OurGoal/>
+        <div className='min-h-screen'>
         <HomePageThree/>
+        </div>
+
+        
         {/* <HomePageFour/> */}
         {/* <Phone /> */}
         <Footer/>
