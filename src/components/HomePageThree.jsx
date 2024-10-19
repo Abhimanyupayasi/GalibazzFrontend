@@ -44,7 +44,8 @@ const HomePageThree = () => {
   ];
   
   return (
-    <div className="relative min-h-screen bg-gray-800" ref={sectionRef}>
+    // min-h-screen
+    <div className="relative min-h-[100vh] md:min-h-[90vh]  bg-gray-800" ref={sectionRef}>
       {circles.map((circle, index) => (
         <motion.div
           key={index}
